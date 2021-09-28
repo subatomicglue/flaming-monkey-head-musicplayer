@@ -1,4 +1,6 @@
-# Editor/Programmer for the Behringer TD3
+# Flaming Monkey Head Music Player
+
+(yes, we know that chimps are apes, but Ape Head doesn't have as good a ring to it, now does it?)
 
 A music file player, meant for local filesystem. Standalone app written in Angular (12) and NodeJS (14), packaged into an Electron (13) application.
 
