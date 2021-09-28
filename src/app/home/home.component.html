@@ -1,0 +1,45 @@
+
+<div class="listing" (window:keypress)="onKeyDown( $event )"  (window:mouseup)="progress_manipulating = false" >
+
+  <img class="albumart" src="{{art}}">
+
+  <!-- (click)="click(f)"  -->
+
+  <div id="item{{i}}" (click)="f.path == '..' ? click( { fullpath: path + '/..', type: 'dir' }, i, listing ) : click( f, i, listing )" class="listitem" *ngFor="let f of files; index as i;">
+    <img *ngIf="f.path != '..'" class="icon" src="{{f.picture ? f.picture : image_dict[f.image]}}">
+    <span *ngIf="f.path == '..'" class="material-icons">arrow_back_ios</span>
+      <div class="text">
+        <div [ngClass]="{ 'textline': true, 'textline-song': f.type != 'dir' }"><span *ngIf="playing?.track?.fullpath == f.fullpath" class="material-icons-outlined" style="vertical-align: middle;margin-left:-8px;">play_arrow</span>{{f.title ? f.title : f.path + (f.type == "dir" ? "/" : "") }}</div>
+        <div *ngIf="f.path != '..'" class="textline">{{f.album ? "" + f.album : ""}} <span *ngIf="f.runningtime && f.runningtime != ''" class="duration">- {{f.runningtime ? f.runningtime : ""}}</span></div>
+        <!-- by {{f.artist ? "" + f.artist : ""}} -->
+      </div>
+    <!-- <span class="text"><b>{{f.title ? f.title : f.path}}</b><BR>{{f.artist || f.album ? " " : ""}}{{f.artist ? "" + f.artist : ""}}{{f.artist && f.album ? ", " : ""}}{{f.album ? "" + f.album : ""}}{{f.artist || f.album ? "" : ""}}{{f.type == "dir" ? "/" : ""}}</span> -->
+  </div>
+
+  <div class="footer" *ngIf="audio" style="">
+    <div class="footer-left" style="">
+      <div class="footer-flexcell">
+        <div class="" style="text-align: center; width: 60px;">
+          <img class="" style="width: 40px; height: 40px;" src="{{playing?.track?.picture ? playing?.track?.picture : playing?.listing?.image_dict[playing?.track?.image]}}">
+        </div>
+        <div class="player-text-group">
+          <div class="player-text"><strong>{{playing?.track?.title ? playing?.track?.title : playing?.track?.path}}</strong></div>
+          <div class="player-text">{{playing?.track?.artist}} - {{playing?.track?.album}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-center" style="height:60px; white-space: nowrap; vertical-align: middle; text-align: center; overflow: auto;">
+      <div class="footer-flexcell">
+        <div (click)="track_prev()" class="material-icons">skip_previous</div><div *ngIf="audio && !audio.paused" (click)="track_pause()" class="material-icons">pause</div><div *ngIf="audio && audio.paused" (click)="track_play()" class="material-icons-outlined">play_arrow</div><div (click)="track_next()" class="material-icons">skip_next</div><div (click)="track_stop()" class="material-icons">close</div>
+      </div>
+    </div>
+    <div class="footer-right" style="min-width: 0; height:60px;">
+      <div class="footer-flexcell">
+        <div class="text-center w-100">{{currentTime}} <img (click)="toggleMode()" class="svg-filter-white" src="/assets/{{modes_repeaticon[mode]}}.svg"></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="audio" id="progress-bar" class="progress-bar" (mousemove)="progressMove($event)" (mousedown)="progressStart($event)" (mouseup)="progressEnd($event)"><div id="progress-amt" class="progress-amt" [ngStyle]="{ 'width': progressamt }">&nbsp;</div></div>
+
+</div>

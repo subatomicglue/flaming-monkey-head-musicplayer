@@ -1,0 +1,229 @@
+:host {
+
+}
+
+.listing {
+  //float:left;
+  width:100%;
+  overflow-y: auto;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  padding-bottom:  calc( 120px + 2em );
+}
+
+
+
+.albumart {
+  width: 25vw;
+  height: 25vw;
+  object-fit:cover;
+  object-position: center;
+}
+
+.listitem {
+  border-color: #000000 #000000 #000000 #000000;
+  border-width: 0px 0px 1px 0px;
+  border-style: none none solid none;
+  white-space: nowrap;
+  width: 100%;
+}
+.listitem .icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* list padding, scale these together */
+.listitem { padding: 0.5em; }
+.listitem .icon { margin-right: 0.5em; }
+/* list icon size */
+.listitem .icon { width: 2.5em; height: 2.5em; }
+
+.listitem .text {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc( 100% - 3.5em );
+}
+
+.listitem .text .textline {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.duration {
+  color: grey;
+}
+
+.listitem .text .textline-song {
+  font-weight: bold;
+}
+
+.player {
+  //position: absolute; /* prevent the cell from seeing the children, so we get an even 3 columns with play controls in center... */
+  height: 100%;
+  vertical-align: middle;
+  //background-color:forestgreen;
+  width: 100%;
+}
+
+
+
+.player .art {
+  width: 40px;
+  height: 40px;
+  //background-color:ghostwhite;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+.player .lines {
+  margin: 0;
+  padding: 0;
+  //background-color:goldenrod;
+  vertical-align: middle;
+  width: 100%;
+}
+.player .lines .line {
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: calc( 50vw - 88px ) !important;
+}
+
+
+.progress-bar {
+  position: fixed;
+  bottom: 120px;
+  height: 2em; // keep in sync with  .listing { padding-bottom }
+  background-color: #222;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.progress-amt {
+  background-color: #f00;
+  width: 20%;
+  height: 5px;
+  transition: width 0.25s;
+  transition-timing-function: ease-in-out;
+  pointer-events: none; // only progress-bar gets clicks, for proper calculation
+}
+
+
+.footer {
+  //background-color:firebrick;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  //line-height: 60px; /* Vertically center the text there */
+  background-color: #222;
+  //white-space: nowrap;
+  //column-count: 3;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-right, .footer-left {
+  display: inline-block;
+  width: calc( 50vw - 48px );
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.footer-center {
+  display: inline-block;
+  width: 96px;
+  min-width: 96px;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.footer-flexcell {
+  display: flex;
+  align-items: center;
+  height:60px;
+}
+.footer-center .footer-flexcell {
+  align-items: center;
+  justify-content: center;
+}
+
+.player-text {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player-text-group {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.footer {
+  height: 120px;
+}
+.footer-left {
+  width: 100%;
+}
+.footer-center {
+  display: inline-block;
+  width: calc( 100% - 120px );
+  min-width: calc( 100% - 120px );
+}
+.footer-right {
+  width: 120px;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .footer {
+    height: 60px;
+  }
+  .footer-center {
+    display: inline-block;
+    width: 96px;
+    min-width: 96px;
+  }
+  .footer-right, .footer-left {
+    width: calc( 50vw - 48px );
+  }
+  .listing {
+    padding-bottom: calc( 60px + 2em );
+  }
+  .player-text {
+    width: calc( 50vw - 108px ) !important;
+  }
+
+  /* padding for the list, scale these together */
+  .listitem { padding: 1em; }
+  .listitem .icon { margin-right: 1em; }
+
+  /* list icon size */
+  .listitem .icon { width: 3.5em; height: 3.5em; }
+
+  .progress-bar {
+    bottom: 60px;
+  }
+}
+
+
+// https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
+.svg-filter-white {
+  filter: invert(100%) sepia(1%) saturate(7484%) hue-rotate(161deg) brightness(103%) contrast(99%);
+}

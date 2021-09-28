@@ -1,0 +1,69 @@
+@import 'material-icons/iconfont/material-icons.scss';
+@import '~bootstrap/scss/bootstrap';
+
+.header {
+  flex-shrink: 0;
+}
+.content {
+  flex-grow: 1;
+  overflow: auto;
+  min-height: 2em;
+}
+// .footer{
+//   flex-shrink: 0;
+// }
+
+
+/* override browser default */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  user-select: none;
+
+  float:left;
+  width:100%;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* use viewport-relative units to cover page fully */
+html, body {
+  height: 100vh;
+  width: 100vw;
+  position:relative;
+}
+
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: #252526;
+  //background-color: white;
+  cursor: pointer;
+}
+
+
+a, a:hover, a:visited {
+  color: silver;
+  text-decoration: none;
+}
+
+.button {
+  display: inline-block;
+  background-color: lightblue;
+  color: black;
+  padding: 1em;
+  margin: .2em;
+}
+.button-disabled {
+  display: inline-block;
+  background-color: lightblue;
+  color: grey;
+  padding: 1em;
+  margin: .2em;
+}
+
+H1 {
+  margin: 0;
+  font-size: 1em;
+}
