@@ -1,37 +1,25 @@
 # Editor/Programmer for the Behringer TD3
 
-A standalone pattern editor for the Behringer TD3 written in Angular (12) and NodeJS (14), packaged into an Electron (13) application.
+A music file player, meant for local filesystem. Standalone app written in Angular (12) and NodeJS (14), packaged into an Electron (13) application.
+
+This app is meant to play media files from the local filesystem + USB drives...
+
 
 Running as:
  - dedicated hardware (raspberry pi based)
- - software app  (MacOS, Win, Linux)
+ - desktop app  (MacOS, Win, Linux)
 
 ![screenshot](screenshot.jpg)
 
 - status:  ** work in progress **.
-  - editor works/tested on:
-    - MacOS MacBookPro 2019 (Catalina 10.15.7)
-    - Raspberry Pi (8gb) with [official 7" touchscreen](https://www.raspberrypi.org/products/raspberry-pi-touch-display/)  ([Buster 2021-05-07](https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2021-05-28/))
-    - ...all tests with USB-midi to the TD-3
+  - TODO: write me
 
-- TODO:
-  - provide some way for people to download pre-built packages for their OS
-  - document how to build on each of Win/Lin/Mac/Raspi targets (below is simply the default README.md from `angular-electron` project).
-  - rPI needs some polish
-    - window in fullscreen mode
-    - some weird shifting of the grid when adding a note, probably Angular lifecycle with the `pattern` object changing that can be changed
-    - a little slow (tap on a grid cell, and watch it update <1sec later)
-    - rPI build/installation is automated, but the scripts are not available here...  yet.  (less important if we can publish pre-built packages for download)
-  - MIDI needs some polish
-    - Currently we search for the "TD-3" midi device, if found, use it!   That works for USB MIDI.
-    - I'd like to provide a fallback in the UI to select the MIDI device in case using a standard midi cable.
-  - MIDI interface is on the nodejs side, using the RtMIDI c++ libs, it could be interesting to also provide a Web MIDI implementation as well for a completely browser based solution, avoid all the RPC calls from the Electron Renderer to Node side..
-    - Having midi on nodejs side might be more performant for the sequencer timing, since it operates in a separate thread from the renderer, no competition might be better - considering javascript's single thread model.
-  - experimental, unrelated to TD3...
-    - when no midi device attached, I have a tiny web tech synth running (using the Web Audio api)...  I could improve it...
-      - there is no slide
-      - supply some better tones
-      - maybe a way to select them...
+- TODO (priority ordering):
+  - config file for the ROOTs (what you see when you navigate all the way .. up
+  - store settings in localStorage so they're persistant...
+  - build for the raspberry pi, convert / clean out the old scripts from the project I copied this from...
+  - think about DLNA / uPnP browsing
+
 
 ------------------------------------------------------------
 
