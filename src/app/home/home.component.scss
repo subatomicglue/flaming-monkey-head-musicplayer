@@ -57,62 +57,61 @@
   font-weight: bold;
 }
 
-.player {
-  //position: absolute; /* prevent the cell from seeing the children, so we get an even 3 columns with play controls in center... */
-  height: 100%;
-  vertical-align: middle;
-  //background-color:forestgreen;
-  width: 100%;
-}
+// .player {
+//   //position: absolute; // prevent the cell from seeing the children, so we get an even 3 columns with play controls in center...
+//   height: 100%;
+//   vertical-align: middle;
+//   //background-color:forestgreen;
+//   width: 100%;
+// }
+
+// .player .art {
+//   width: 40px;
+//   height: 40px;
+//   //background-color:ghostwhite;
+//   vertical-align: middle;
+//   display: inline-block;
+// }
 
 
+// .player .lines {
+//   margin: 0;
+//   padding: 0;
+//   //background-color:goldenrod;
+//   vertical-align: middle;
+//   width: 100%;
+// }
+// .player .lines .line {
+//   font-size: 1em;
+//   line-height: 1em;
+//   margin: 0;
+//   padding: 0;
 
-.player .art {
-  width: 40px;
-  height: 40px;
-  //background-color:ghostwhite;
-  vertical-align: middle;
-  display: inline-block;
-}
-
-
-.player .lines {
-  margin: 0;
-  padding: 0;
-  //background-color:goldenrod;
-  vertical-align: middle;
-  width: 100%;
-}
-.player .lines .line {
-  font-size: 1em;
-  line-height: 1em;
-  margin: 0;
-  padding: 0;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: calc( 50vw - 88px ) !important;
-}
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   width: calc( 50vw - 88px ) !important;
+// }
 
 
 .progress-bar {
   position: fixed;
   bottom: 120px;
   height: 2em; // keep in sync with  .listing { padding-bottom }
-  background-color: #222;
   padding: 0;
   margin: 0;
   width: 100%;
   box-sizing: border-box;
 }
 .progress-amt {
-  background-color: #f00;
   width: 20%;
-  height: 5px;
+  //height: 5px;
+  height: 100%;
   transition: width 0.25s;
   transition-timing-function: ease-in-out;
   pointer-events: none; // only progress-bar gets clicks, for proper calculation
+  align-items:baseline;
+  margin-top: auto; // align progress indicator to the bottom
 }
 
 
@@ -123,12 +122,37 @@
   width: 100%;
   height: 60px; /* Set the fixed height of the footer here */
   //line-height: 60px; /* Vertically center the text there */
-  background-color: #222;
   //white-space: nowrap;
   //column-count: 3;
   padding: 0;
   margin: 0;
 }
+.footer {
+  background-color: rgb(48,48,48);
+}
+.progress-bar {
+  // alpha gradient showing what's under, we need some thickness
+  // for touch compatibility, but a thick bar looks chunky and unbalanced,
+  // so, make it look svelt while allowing chunky touch interaction
+  background-image: linear-gradient(rgba(48,48,48,0), rgba(48,48,48,1));
+  background-color: rgba(48,48,48,0);
+
+  // define the top extent of the touch area
+  //border-top: 1px solid rgba(48,48,48,0.8);
+}
+.progress-amt {
+  // gradient resembling fire, we need some thickness
+  // for touch compatibility, but a thick red bar looks chunky,
+  // so, make it look svelt while allowing chunky touch interaction
+  background-image: linear-gradient(rgba(192,96,96,0), rgba(192,96,96,0.05), rgba(192,96,96,0.25), rgba(192,96,96,1));
+  background-color: rgba(192,96,96,0);
+
+  // define the top extent of the touch area (in red)
+  border-top: 1px solid rgba(192,96,96,0.8);
+}
+
+
+
 
 .footer-right, .footer-left {
   display: inline-block;
