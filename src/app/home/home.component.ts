@@ -18,8 +18,6 @@ import AbortablePromise from "promise-abortable";
 export class HomeComponent implements OnInit/*, OnChanges*/ {
   files = [];
   image_dict = {};
-  defaultpath = "/Users/kevinmeinert/Downloads/4Jameel";
-  path = this.defaultpath;
   type = "dir";
   status = false;
   static default_art = '/assets/default.png';
@@ -33,11 +31,14 @@ export class HomeComponent implements OnInit/*, OnChanges*/ {
     image_dict: { ["/assets/default"]: "/assets/default.png" },
     listing: [
       { "path":"assorted", "fullpath":"/Users/kevinmeinert/Downloads/assorted", "type": "dir", "ext": "", image: '/assets/default' },
-      { "path":"4Jameel", "fullpath":"/Users/kevinmeinert/Downloads/4Jameel", "type": "dir", "ext": "", image: '/assets/default' },
-      { "path":"4Dave",   "fullpath":"/Users/kevinmeinert/Downloads/4Dave",   "type": "dir", "ext": "", image: '/assets/default' },
-      { "path":"music",   "fullpath":"/Volumes/music",                        "type": "dir", "ext": "", image: '/assets/default' },
+      { "path":"4Jameel",  "fullpath":"/Users/kevinmeinert/Downloads/4Jameel",  "type": "dir", "ext": "", image: '/assets/default' },
+      { "path":"4Dave",    "fullpath":"/Users/kevinmeinert/Downloads/4Dave",    "type": "dir", "ext": "", image: '/assets/default' },
+      { "path":"music",    "fullpath":"/Volumes/music",                         "type": "dir", "ext": "", image: '/assets/default' },
     ]
   }
+  defaultpath = "/"; // force roots to show, since this path is "above" any of the roots
+  path = this.defaultpath;
+
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private electronService: ElectronService, private zone:NgZone) {
   }
