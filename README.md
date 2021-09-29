@@ -13,13 +13,29 @@ Running as:
 
 <img src="screenshot.jpg" alt="screenshot" style="width: 500px;  max-width: 500px;"/>
 
-- status:  ** work in progress **.
-  - TODO: write me
+## Features:
+  - General:
+    - Formats Supported:  mp3, m4a, aac, wav
+    - Local Filesystem
+    - Responsive Layout for the GUI
+  - Browser:
+    - Root Directories Feature:  configure top-level roots such as USB drive, local filesystem directories, etc..   app starts in the roots view, and when user navigates up the hierarchy, eventually will get back to these roots
+    - Folder Icons derived from Folder.jpg|png|gif, first jpg|png|gif found
+    - Music File Icons derived from Folder.jpg|png|gif, /musicfilename/.jpg|png|gif. or embedded tagged art
+    - Music File title|album|time derived from tag info, or filename
+    - Play indicator on the track, when playing
+  - Player:
+    - Current Track display: Art, Title, Album, Artist
+    - Transport Controls:  PrevTrack, NextTrack, Pause/Play, Stop
+    - Repeat Modes available when track is finished playing:  "Play All", "Repeat All", "Play 1", "Repeat 1"
+    - Interactive Timeline Progress Meter:  scrub through the playing track
 
-- TODO (priority ordering):
+## Future Work:
+  - Folder Icons derived from embedded tagged art when no images in folder
   - config file for the ROOTs (what you see when you navigate all the way .. up
-  - store settings in localStorage so they're persistant...
+  - store settings in localStorage so they're persistant... (e.g. repeat mode)
   - build for the raspberry pi, convert / clean out the old scripts from the project I copied this from...
+  - make a release in github (upload app bundles)
   - think about DLNA / uPnP browsing
 
 
