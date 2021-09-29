@@ -15,20 +15,21 @@ Running as:
 
 ## Features:
   - General:
-    - Formats Supported:  mp3, m4a, aac, wav
-    - Local Filesystem
-    - Responsive Layout for the GUI
+    - **Formats Supported:**  mp3, m4a, aac, wav
+    - **Locations Supported:**  Local Filesystem
+    - **GUI:**  HTML Responsive Layout
   - Browser:
-    - Root Directories Feature:  configure top-level roots such as USB drive, local filesystem directories, etc..   app starts in the roots view, and when user navigates up the hierarchy, eventually will get back to these roots
-    - Folder Icons derived from Folder.jpg|png|gif, first jpg|png|gif found
-    - Music File Icons derived from Folder.jpg|png|gif, /musicfilename/.jpg|png|gif. or embedded tagged art
-    - Music File title|album|time derived from tag info, or filename
+    - **Root Directories Feature:**  configure top-level roots such as USB drive, local filesystem directories, etc..   app starts in the roots view, and when user navigates up the hierarchy, eventually will get back to these roots
+    - **Folder Icons show album art:** derived from Folder.jpg|png|gif, first jpg|png|gif found
+    - **Music File Icons show album art:** derived from Folder.jpg|png|gif, /musicfilename/.jpg|png|gif. or track's cover-art tag
+    - Music File title|album|duration derived from tag info, or filename
     - Play indicator on the track, when playing
   - Player:
-    - Current Track display: Art, Title, Album, Artist
-    - Transport Controls:  PrevTrack, NextTrack, Pause/Play, Stop
-    - Repeat Modes available when track is finished playing:  "Play All", "Repeat All", "Play 1", "Repeat 1"
+    - **Current Track display:** Art, Title, Album, Artist
+    - **Transport Controls:**  PrevTrack, NextTrack, Pause/Play, Stop
+    - **Repeat Modes**, when track is finished playing:  "Play All", "Repeat All", "Play 1", "Repeat 1"
     - Interactive Timeline Progress Meter:  scrub through the playing track
+    - **Auto Click Removal:** Fade to Silence 0.1s from end of track to avoid pop.
 
 ## Future Work:
   - Folder Icons derived from embedded tagged art when no images in folder
