@@ -1,4 +1,4 @@
-# Flaming Monkey Head Music Player
+# Flaming Monkey Head - Local Music Player
 
 (yes, we know that chimps are apes, but Ape Head doesn't have as good a ring to it, now does it?)
 
