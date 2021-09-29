@@ -32,6 +32,7 @@ Running as:
     - **Auto Click Removal:** Fade to Silence 0.1s from end of track to avoid pop.
 
 ## Future Work:
+  - Better hero image / banner w/title+description at top.
   - Folder Icons derived from embedded tagged art when no images in folder
   - config file for the ROOTs (what you see when you navigate all the way .. up
   - store settings in localStorage so they're persistant... (e.g. repeat mode)
