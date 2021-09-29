@@ -11,7 +11,7 @@ Running as:
  - dedicated hardware (raspberry pi based)
  - desktop app  (MacOS, Win, Linux)
 
-![screenshot](screenshot.jpg)
+<img src="screenshot.jpg" alt="screenshot" style="max-width:300px;"/>
 
 - status:  ** work in progress **.
   - TODO: write me
