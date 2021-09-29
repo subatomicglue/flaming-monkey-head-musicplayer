@@ -37,6 +37,7 @@ Running as:
   - config file for the ROOTs (what you see when you navigate all the way .. up
   - store settings in localStorage so they're persistant... (e.g. repeat mode)
   - build for the raspberry pi, convert / clean out the old scripts from the project I copied this from...
+  - App icon for Dock & Installer + clean up menu
   - make a release in github (upload app bundles)
   - think about DLNA / uPnP browsing
 
