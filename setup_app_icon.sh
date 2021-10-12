@@ -3,6 +3,9 @@
 USER=pi
 HOST=raspberrypi.local
 PORT=22
+INSTALL_DIR="/home/pi/FlamingMonkeyHeadMusicPlayer"
+EXE="FlamingMonkeyHeadMusicPlayer"
+APPNAME="Flaming Monkey Head"
 
 # qemu
 #USER=pi
@@ -75,31 +78,31 @@ source "../vstdev/MantisSynth/rpi/common.sh"
 echo ""
 echo "Icon launcher for the app"
 writeText2File '#!/bin/bash
-PID="$(pidof td3programmer)"
+PID="$(pidof $EXE)"
 if [  "$PID" != ""  ]; then
   kill $PID
 else
- DISPLAY=:0.0 /home/pi/td3/release/linux-armv7l-unpacked/td3programmer &
+ DISPLAY=:0.0 "$INSTALL_DIR/release/linux-armv7l-unpacked/$EXE" &
 fi
-' "/usr/bin/toggle-td3.sh"
+' "/usr/bin/toggle-$EXE.sh"
 
-remoteCmd "sudo chmod +x /usr/bin/toggle-td3.sh"
+remoteCmd "sudo chmod +x /usr/bin/toggle-$EXE.sh"
 
-copyFile2FileAsRoot td3-rpi-icon.png "/usr/share/pixmaps/td3-rpi-icon.png"
-writeText2File '[Desktop Entry]
-Name=Toggle TD3 Editor
-Comment=Toggle TD3 Editor
-Exec=/usr/bin/toggle-td3.sh
+copyFile2FileAsRoot rpi-icon.png "/usr/share/pixmaps/$EXE-rpi-icon.png"
+writeText2File "[Desktop Entry]
+Name=Toggle $APPNAME
+Comment=Toggle $APPNAME
+Exec=/usr/bin/toggle-$EXE.sh
 Type=Application
-Icon=td3-rpi-icon.png
+Icon=$EXE-rpi-icon.png
 Categories=Panel;Utility;MB
 X-MB-INPUT-MECHANISM=True
-' "/usr/share/raspi-ui-overrides/applications/toggle-td3.desktop"
+" "/usr/share/raspi-ui-overrides/applications/toggle-$EXE.desktop"
 
 
 remoteCmd "cp /etc/xdg/lxpanel/LXDE-pi/panels/panel /home/pi/.config/lxpanel/LXDE-pi/panels/panel"
 
-appendText2ToFile '
+appendText2ToFile "
 Plugin {
   type=launchbar
   Config {
@@ -112,25 +115,25 @@ Plugin {
   type=launchbar
   Config {
     Button {
-      id=toggle-td3.desktop
+      id=toggle-$EXE.desktop
     }
   }
 }
-' "/home/pi/.config/lxpanel/LXDE-pi/panels/panel"
+" "/home/pi/.config/lxpanel/LXDE-pi/panels/panel"
 
-writeText2File '[Desktop Entry]
+writeText2File "[Desktop Entry]
 Name=TD3 Editor
 Comment=TD3 Editor
-Icon=/usr/share/pixmaps/td3-rpi-icon.png
-Exec=/home/pi/td3/release/linux-armv7l-unpacked/td3programmer
+Icon=/usr/share/pixmaps/$EXE-rpi-icon.png
+Exec=$INSTALL_DIR/release/linux-armv7l-unpacked/$EXE
 Type=Application
 Encoding=UTF-8
 Terminal=false
-' /home/pi/Desktop/TD3Editor.desktop
+" "/home/pi/Desktop/$APPNAME.desktop"
 
-remoteCmd "sudo chmod 755 Desktop/TD3Editor.desktop; sudo chown pi Desktop/TD3Editor.desktop; sudo chgrp pi Desktop/TD3Editor.desktop"
+remoteCmd "sudo chmod 755 'Desktop/$APPNAME.desktop'; sudo chown pi 'Desktop/$APPNAME.desktop'; sudo chgrp pi 'Desktop/$APPNAME.desktop'"
 
-remoteCmd "/usr/bin/toggle-td3.sh"
+remoteCmd "/usr/bin/toggle-$EXE.sh"
 
 # DISPLAY=:0 matchbox-keyboard &
 

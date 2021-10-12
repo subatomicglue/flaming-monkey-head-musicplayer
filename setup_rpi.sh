@@ -3,6 +3,9 @@
 USER=pi
 HOST=raspberrypi.local
 PORT=22
+INSTALL_DIR="/home/pi/FlamingMonkeyHeadMusicPlayer"
+EXE="FlamingMonkeyHeadMusicPlayer"
+APPNAME="Flaming Monkey Head"
 
 # qemu
 #USER=pi
@@ -111,7 +114,7 @@ remoteCmd "nvm alias default node"
 
 echo ""
 echo "Removing previous app"
-remoteCmd "rm -rf ~/td3"
+remoteCmd "rm -rf '$INSTALL_DIR'"
 
 echo ""
 echo "Installing app"
@@ -119,7 +122,7 @@ npm run deploy-rpi
 
 echo ""
 echo "Building app"
-remoteCmd "cd ~/td3;  npm install; npm run electron:buildrpi"
+remoteCmd "cd '$INSTALL_DIR';  npm install; npm run electron:buildrpi"
 
 ./setup_app_icon.sh
 
@@ -132,7 +135,7 @@ echo "Listing MIDI Devices:"
 remoteCmd "amidi -l"
 
 
-# DISPLAY=:0.0 cd /home/pi/td3/release/linux-armv7l-unpacked && ./td3programmer
+# DISPLAY=:0.0 cd '$INSTALL_DIR/release/linux-armv7l-unpacked' && ./$EXE
 
 
 #'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

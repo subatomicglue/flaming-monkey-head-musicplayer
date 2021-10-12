@@ -1,13 +1,14 @@
 {
-  "name": "td3programmer",
-  "author": "K.Meinert <kevinNOSPAMMMMREMOVETHIS@subatomicglue.com> (https://www.subatomicglue.com/)",
-  "URL": "https://www.subatomicglue.com/",
+  "name": "FlamingMonkeyHeadMusicPlayer",
+  "author": "K.Meinert <kevinNOSPAMMMMREMOVETHIS@subatomicglue.com> (https://www.subatomiclabs.com/)",
+  "URL": "https://www.subatomiclabs.com/",
   "email": "kevinNOSPAMMMMREMOVETHIS@subatomicglue.com",
   "version": "10.1.0",
   "main": "main.js",
   "private": true,
   "dependencies": {
     "@electron/remote": "1.2.0",
-    "midi": "^2.0.0"
+    "midi": "^2.0.0",
+    "music-metadata": "^7.11.4"
   }
 }

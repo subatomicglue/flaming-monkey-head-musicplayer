@@ -122,7 +122,7 @@ function getImage( filepath ) {
     fs.existsSync( path.join( getPath( filepath ), "Folder.jpg" ) ) ? ("file://" + path.join( getPath( filepath ), "Folder.jpg" )) :
     fs.existsSync( path.join( getPath( filepath ), "Folder.png" ) ) ? ("file://" + path.join( getPath( filepath ), "Folder.png" )) :
     fs.existsSync( path.join( getPath( filepath ), "Folder.gif" ) ) ? ("file://" + path.join( getPath( filepath ), "Folder.gif" )) :
-    "/assets/default.png"
+    "assets/default.png"
   )
   //console.log( filepath, "=>", image.slice( 0, 100 ) );
   return image;

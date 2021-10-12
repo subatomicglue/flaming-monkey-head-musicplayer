@@ -17,27 +17,27 @@ import AbortablePromise from "promise-abortable";
 })
 export class HomeComponent implements OnInit/*, OnChanges*/ {
   files = [];
-  image_dict = {};
-  type = "dir";
-  status = false;
-  static default_art = '/assets/default.png';
+  image_dict: any = {};
+  type: string = "dir";
+  status: boolean = false;
+  static default_art: string = 'assets/default.png';
   art = HomeComponent.default_art;
-  static default_playing = { index: 0, track: { "path": "", "fullpath": "", "type": "dir", image: '/assets/default' }, listing: { image_dict: { ["/assets/default"]: "/assets/default.png" }, listing: [] } };
-  playing = HomeComponent.default_playing;
-  currentTime = "--:--"
-  progressamt = "0%";
+  static default_playing: any = { index: 0, track: { "path": "", "fullpath": "", "type": "dir", image: 'assets/default' }, listing: { image_dict: { ["assets/default"]: "assets/default.png" }, listing: [] } };
+  playing: any = HomeComponent.default_playing;
+  currentTime: string = "--:--"
+  progressamt: string = "0%";
   listing: any = {};
-  listing_roots = {
-    image_dict: { ["/assets/default"]: "/assets/default.png" },
+  listing_roots: any = {
+    image_dict: { ["assets/default"]: "assets/default.png" },
     listing: [
-      { "path":"assorted", "fullpath":"/Users/kevinmeinert/Downloads/assorted", "type": "dir", "ext": "", image: '/assets/default' },
-      { "path":"4Jameel",  "fullpath":"/Users/kevinmeinert/Downloads/4Jameel",  "type": "dir", "ext": "", image: '/assets/default' },
-      { "path":"4Dave",    "fullpath":"/Users/kevinmeinert/Downloads/4Dave",    "type": "dir", "ext": "", image: '/assets/default' },
-      { "path":"music",    "fullpath":"/Volumes/music",                         "type": "dir", "ext": "", image: '/assets/default' },
+      { "path":"assorted", "fullpath":"/Users/kevinmeinert/Downloads/assorted", "type": "dir", "ext": "", image: 'assets/default' },
+      { "path":"4Jameel",  "fullpath":"/Users/kevinmeinert/Downloads/4Jameel",  "type": "dir", "ext": "", image: 'assets/default' },
+      { "path":"4Dave",    "fullpath":"/Users/kevinmeinert/Downloads/4Dave",    "type": "dir", "ext": "", image: 'assets/default' },
+      { "path":"music",    "fullpath":"/Volumes/music",                         "type": "dir", "ext": "", image: 'assets/default' },
     ]
   }
-  defaultpath = "/"; // force roots to show, since this path is "above" any of the roots
-  path = this.defaultpath;
+  defaultpath: string = "/"; // force roots to show, since this path is "above" any of the roots
+  path: string = this.defaultpath;
 
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private electronService: ElectronService, private zone:NgZone) {
