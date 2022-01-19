@@ -4,7 +4,7 @@ USER=pi
 HOST=raspberrypi.local
 PORT=22
 INSTALL_DIR="/home/pi/FlamingMonkeyHeadMusicPlayer"
-EXE="FlamingMonkeyHeadMusicPlayer"
+EXE="flamingmonkeyheadmusicplayer"
 APPNAME="Flaming Monkey Head"
 
 # qemu
@@ -122,16 +122,17 @@ Plugin {
 " "/home/pi/.config/lxpanel/LXDE-pi/panels/panel"
 
 writeText2File "[Desktop Entry]
-Name=TD3 Editor
-Comment=TD3 Editor
+Name=$APPNAME
+Comment=$APPNAME
 Icon=/usr/share/pixmaps/$EXE-rpi-icon.png
 Exec=$INSTALL_DIR/release/linux-armv7l-unpacked/$EXE
 Type=Application
 Encoding=UTF-8
 Terminal=false
-" "/home/pi/Desktop/$APPNAME.desktop"
+" "/home/pi/Desktop/$EXE.desktop"
 
-remoteCmd "sudo chmod 755 'Desktop/$APPNAME.desktop'; sudo chown pi 'Desktop/$APPNAME.desktop'; sudo chgrp pi 'Desktop/$APPNAME.desktop'"
+echo "Changing permissions for 'Desktop/$EXE.desktop'"
+remoteCmd "sudo chmod 755 \"Desktop/$EXE.desktop\"; sudo chown pi \"Desktop/$EXE.desktop\"; sudo chgrp pi \"Desktop/$EXE.desktop\""
 
 remoteCmd "/usr/bin/toggle-$EXE.sh"
 

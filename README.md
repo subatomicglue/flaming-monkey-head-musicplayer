@@ -32,12 +32,18 @@ Running as:
     - **Auto Click Removal:** Fade to Silence 0.1s from end of track to avoid pop.
 
 ## Future Work:
+  - IMMEDIATE TODO:
+    - bigger play controls for large fingers :)
+    - filter out any . files from the file listing
+    - config file for the ROOTs (what you see when you navigate all the way .. up
+    - remove titlebar and menu
+    - power button in upper right to exit
+    - store settings so they're persistant... (e.g. repeat mode)
+      - location configurable (if using RO filesystem, can use USB stick instead)
+    - tapping the playing title resets back to that folder...
   - Better hero image / banner w/title+description at top.
   - Folder Icons derived from embedded tagged art when no images in folder
-  - config file for the ROOTs (what you see when you navigate all the way .. up
-  - store settings in localStorage so they're persistant... (e.g. repeat mode)
   - build for the raspberry pi, convert / clean out the old scripts from the project I copied this from...
-  - App icon for Dock & Installer + clean up menu
   - make a release in github (upload app bundles)
   - think about DLNA / uPnP browsing
 

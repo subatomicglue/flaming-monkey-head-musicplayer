@@ -4,7 +4,7 @@ USER=pi
 HOST=raspberrypi.local
 PORT=22
 INSTALL_DIR="/home/pi/FlamingMonkeyHeadMusicPlayer"
-EXE="FlamingMonkeyHeadMusicPlayer"
+EXE="flamingmonkeyheadmusicplayer"
 APPNAME="Flaming Monkey Head"
 
 # qemu
@@ -89,6 +89,13 @@ source "../vstdev/MantisSynth/rpi/common.sh"
 #remoteCmd "$apt_get upgrade"
 
 echo ""
+echo "Update the time"
+echo "  - in case the rPI's time service is disabled, or not writing because of read-only mode..."
+echo "  - we pull the current time off the header returned by fetching http://google.com"
+echo "  - use that to set the system time"
+remoteCmd "sudo date -s \"\$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z\""
+
+echo ""
 echo "Installing..."
 remoteCmd "$apt_get install node"
 remoteCmd "$apt_get install npm"
@@ -97,20 +104,21 @@ remoteCmd "$apt_get install libasound2-dev"
 
 echo ""
 echo "electron's ruby/fpm sucks on raspberry pi:"
-echo "  avoid 'ruby: cannot execute binary file: Exec format error'"
-echo "install our own ruby and fpm"
+echo "  why?  it gives the error:   'ruby: cannot execute binary file: Exec format error'"
+echo "so, install our own ruby and fpm"
 echo "requires:"
 echo "   export USE_SYSTEM_FPM=\"true\""
 echo "before the electron-builder command"
-remoteCmd "$apt_get install ruby-full"
-remoteCmd "sudo gem uninstall fpm; sudo gem install fpm -v 1.10.2"
+remoteCmd "$apt_get install ruby-full; sudo gem uninstall --all --force --executables fpm; sudo gem install fpm -v 1.10.2"
 
 echo ""
-echo "Installing... node version manager"
+echo "Installing... node version manager (we pick a past version, because the rpi time can be some days in the past)"
 remoteCmd "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash"
-remoteCmd "nvm install 14"
-remoteCmd "nvm use 14"
-remoteCmd "nvm alias default node"
+remoteCmd "source ~/.nvm/nvm.sh; nvm install 14.18.0; nvm use 14.18.0; nvm alias default node"
+if [ "$?" != 0 ]; then
+  echo "something with the nvm install failed"
+  exit -1
+fi
 
 echo ""
 echo "Removing previous app"
@@ -122,8 +130,14 @@ npm run deploy-rpi
 
 echo ""
 echo "Building app"
-remoteCmd "cd '$INSTALL_DIR';  npm install; npm run electron:buildrpi"
+echo '- INSTALLING node_modules'
+remoteCmd "cd '$INSTALL_DIR'; export DEBUG=electron-builder; npm install"
 
+echo '- BUILDING the APP and APP PACKAGE'
+remoteCmd "cd '$INSTALL_DIR'; export DEBUG=electron-builder; npm run electron:buildrpi"
+
+echo ""
+echo "Setup the app Icon"
 ./setup_app_icon.sh
 
 echo ""

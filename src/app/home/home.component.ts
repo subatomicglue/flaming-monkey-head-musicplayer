@@ -34,6 +34,8 @@ export class HomeComponent implements OnInit/*, OnChanges*/ {
       { "path":"4Jameel",  "fullpath":"/Users/kevinmeinert/Downloads/4Jameel",  "type": "dir", "ext": "", image: 'assets/default' },
       { "path":"4Dave",    "fullpath":"/Users/kevinmeinert/Downloads/4Dave",    "type": "dir", "ext": "", image: 'assets/default' },
       { "path":"music",    "fullpath":"/Volumes/music",                         "type": "dir", "ext": "", image: 'assets/default' },
+      { "path":"media-pi", "fullpath":"/media/pi",                              "type": "dir", "ext": "", image: 'assets/default' },
+      { "path":"media",    "fullpath":"/media",                                 "type": "dir", "ext": "", image: 'assets/default' },
     ]
   }
   defaultpath: string = "/"; // force roots to show, since this path is "above" any of the roots

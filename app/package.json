@@ -1,14 +1,16 @@
 {
   "name": "FlamingMonkeyHeadMusicPlayer",
   "author": "K.Meinert <kevinNOSPAMMMMREMOVETHIS@subatomicglue.com> (https://www.subatomiclabs.com/)",
+  "description": "A music player for local music files, m4a, mp3, wav, aac",
   "URL": "https://www.subatomiclabs.com/",
   "email": "kevinNOSPAMMMMREMOVETHIS@subatomicglue.com",
-  "version": "10.1.0",
+  "version": "0.0.1",
   "main": "main.js",
   "private": true,
   "dependencies": {
     "@electron/remote": "1.2.0",
     "midi": "^2.0.0",
-    "music-metadata": "^7.11.4"
+    "music-metadata": "^7.11.4",
+    "detect-rpi": "1.4.0"
   }
 }
